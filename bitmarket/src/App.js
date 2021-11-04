@@ -7,15 +7,15 @@ import Header from "./components/Header";
 import CoinPage from "./Pages/CoinPage";
 import Homepage from "./Pages/Homepage";
 
+const usestyles = makeStyles(() => ({
+  App: {
+    backgroundColor: "#14161a",
+    color: "white",
+    minHeight: "100bh",
+  },
+}));
 function App() {
-  const styles = makeStyles(() => ({
-    App: {
-      backgroundColor: "#14161a",
-      color: "white",
-      minHeight: "100bh",
-    },
-  }));
-  const Classes = styles();
+  const Classes = usestyles();
   return (
     <BrowserRouter>
       <div className={Classes.App}>
