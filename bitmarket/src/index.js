@@ -1,8 +1,9 @@
-import reactDom from "react-dom";
 import React from "react";
+import ReactDOM from "react-dom";
 import App from "./App";
 import Context from "./Context";
-reactDom.render(
+import "react-alice-carousel/lib/alice-carousel.css";
+ReactDOM.render(
   <React.StrictMode>
     <Context>
       <App />
