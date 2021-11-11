@@ -7,12 +7,12 @@ import { TrendingCoins } from "../../configration/api";
 import { CryptoState } from "../../Context";
 
 const useStyles = makeStyles((theme) => ({
-  carousel: {
+  Carousel: {
     height: "50%",
     display: "flex",
     alignItems: "center",
   },
-  carouselItem: {
+  CarouselItem: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -43,7 +43,7 @@ const Carousel = () => {
     let profit = coin.price_change_percentage_24h >= 0;
 
     return (
-      <Link className={classes.carouselItem} to={`/coins/${coin.id}`}>
+      <Link className={classes.CarouselItem} to={`/coins/${coin.id}`}>
         <img
           src={coin?.image}
           alt={coin?.name}
@@ -53,11 +53,11 @@ const Carousel = () => {
         <span>
           {coin?.symbol}
           &nbsp; // &nbsp means to add space
-          <span 
-          style={{
-            color: profit>0 ? "green" : "red",
-            fontWeight: 500,
-          }}
+          <span
+            style={{
+              color: profit > 0 ? "green" : "red",
+              fontWeight: 500,
+            }}
           >
             {profit && "+"} {coin?.price_change_percentage_24h?.toFixed(2)}%
           </span>
@@ -78,7 +78,7 @@ const Carousel = () => {
   };
 
   return (
-    <div className={classes.carousel}>
+    <div className={classes.Carousel}>
       <AliceCarousel
         mouseTracking
         infinite
