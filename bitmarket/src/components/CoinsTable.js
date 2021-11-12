@@ -2,7 +2,6 @@ import {
   Container,
   createTheme,
   LinearProgress,
-  makeStyles,
   Paper,
   Table,
   TableBody,
@@ -14,22 +13,41 @@ import {
   ThemeProvider,
   Typography,
 } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { CoinList } from "../configration/api";
 import { CryptoState } from "../Context";
 import { numberWithCommas } from "../components/Banner/Carousel";
-import { Pagination } from "@material-ui/lab";
+import Pagination from "@material-ui/lab/Pagination";
 
 const CoinsTable = () => {
   const [coins, setCoins] = useState([]);
   const [loading, setloading] = useState(false);
-  const [search, setSearch] = useState();
-  const [page, setPage] = useState([1]);
+  const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
   const { currency, symbol } = CryptoState();
-  const history = useHistory();
+  
+  const useStyles = makeStyles({
+    row: {
+      backgroundColor: "#16171a",
+      cursor: "pointer",
+      "&:hover": {
+        backgroundColor: "#131111",
+      },
+      fontFamily: "Montserrat",
+    },
+    pagination: {
+      "& .MuiPaginationItem-root": {
+        //from documentation
+        color: "gold",
+      },
+    },
+  });
+  const classes = useStyles();
 
+  const history = useHistory();
   const darkTheme = createTheme({
     palette: {
       primary: {
@@ -58,23 +76,6 @@ const CoinsTable = () => {
       );
     });
   };
-  const useStyles = makeStyles(() => ({
-    row: {
-      backgroundColor: "#16171a",
-      cursor: "pointer",
-      "&:hover": {
-        backgroundColor: "#131111",
-      },
-      fontFamily: "Montserrat",
-    },
-    Pagination: {
-      "& .MuiPaginationItem-root": {
-        //from documentation
-        color: "gold",
-      },
-    },
-  }));
-  const classes = useStyles();
   return (
     <ThemeProvider theme={darkTheme}>
       <Container style={{ textAlign: "center" }}>
@@ -91,7 +92,7 @@ const CoinsTable = () => {
           {loading ? (
             <LinearProgress style={{ backgroundColor: "gold" }} />
           ) : (
-            <Table>
+            <Table aria-label="simple table">
               <TableHead style={{ backgroundColor: "#eebc1d" }}>
                 <TableRow>
                   {[

@@ -3,13 +3,13 @@ import React from "react";
 import Carousel from "./Carousel";
 const useStyles = makeStyles((theme) => ({
   banner: {
-    backgroundImage: "url(./banner2.jpg)",
+    backgroundImage: "url(./banner-2.png)",
   },
   bannerContent: {
-    height: 400,
+    height: 450,
     display: "flex",
     flexDirection: "column",
-    paddingTop: 25,
+    paddingTop: 28,
     justifyContent: "space-around",
   },
   tagline: {
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     textAlign: "center",
   },
-  Carousel: {
+  carousel: {
     height: "50%",
     display: "flex",
     alignItems: "center",

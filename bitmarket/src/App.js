@@ -11,7 +11,7 @@ const usestyles = makeStyles(() => ({
   App: {
     backgroundColor: "#14161a",
     color: "white",
-    minHeight: "100bh",
+    minHeight: "100vh",
   },
 }));
 function App() {
@@ -21,7 +21,7 @@ function App() {
       <div className={Classes.App}>
         <Header />
         <Route path="/" component={Homepage} exact />
-        <Route path="/coins/:id" component={CoinPage} />
+        <Route path="/coin/:id" component={CoinPage} />
       </div>
     </BrowserRouter>
   );

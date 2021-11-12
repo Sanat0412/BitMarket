@@ -6,8 +6,11 @@ import {
   Select,
   Typography,
 } from "@material-ui/core";
-import { createTheme, ThemeProvider } from "@material-ui/core/styles";
-import { makeStyles } from "@material-ui/styles";
+import {
+  createTheme,
+  ThemeProvider,
+  makeStyles,
+} from "@material-ui/core/styles";
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { CryptoState } from "../Context";
@@ -29,6 +32,7 @@ const darkTheme = createTheme({
 });
 
 function Header() {
+
   const classes = useStyles();
   const { currency, setCurrency } = CryptoState();
   const history = useHistory();
@@ -55,6 +59,7 @@ function Header() {
             >
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"INR"}>INR</MenuItem>
+              <MenuItem value={"EUR"}>EUR</MenuItem>
             </Select>
           </Toolbar>
         </Container>
