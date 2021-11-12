@@ -44,7 +44,7 @@ function Header() {
             >
               BitMarket
             </Typography>
-            {}
+
             <Select
               variant="outlined"
               labelId="demo-simple-select-label"
