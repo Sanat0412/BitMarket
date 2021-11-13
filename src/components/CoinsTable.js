@@ -28,7 +28,7 @@ const CoinsTable = () => {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const { currency, symbol } = CryptoState();
-  
+
   const useStyles = makeStyles({
     row: {
       backgroundColor: "#16171a",
@@ -41,7 +41,7 @@ const CoinsTable = () => {
     pagination: {
       "& .MuiPaginationItem-root": {
         //from documentation
-        color: "gold",
+        color: "skyblue",
       },
     },
   });
@@ -79,7 +79,7 @@ const CoinsTable = () => {
   return (
     <ThemeProvider theme={darkTheme}>
       <Container style={{ textAlign: "center" }}>
-        <Typography variant="h3" style={{ margin: 18, fontFamily: "bold" }}>
+        <Typography variant="h3" style={{ color: "skyblue", margin: 18, fontFamily: "bold" }}>
           CryptoCurrency Prices by Market Cap
         </Typography>
         <TextField
@@ -90,10 +90,10 @@ const CoinsTable = () => {
         />
         <TableContainer component={Paper}>
           {loading ? (
-            <LinearProgress style={{ backgroundColor: "gold" }} />
+            <LinearProgress style={{ backgroundColor: "skyblue" }} />
           ) : (
             <Table aria-label="simple table">
-              <TableHead style={{ backgroundColor: "#eebc1d" }}>
+              <TableHead style={{ backgroundColor: "skyblue" }}>
                 <TableRow>
                   {[
                     "Coin",

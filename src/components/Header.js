@@ -17,7 +17,7 @@ import { CryptoState } from "../Context";
 const useStyles = makeStyles((theme) => ({
   title: {
     flex: 1,
-    color: "gold",
+    color: "skyblue",
     fontWeight: "bold",
     cursor: "pointer",
   },
@@ -32,7 +32,6 @@ const darkTheme = createTheme({
 });
 
 function Header() {
-
   const classes = useStyles();
   const { currency, setCurrency } = CryptoState();
   const history = useHistory();
