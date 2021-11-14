@@ -2,7 +2,7 @@ import { LinearProgress, makeStyles, Typography } from "@material-ui/core";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import CoinInfo from "../components/Banner/CoinInfo";
+import {CoinInfo} from "../components/Banner/CoinInfo";
 import { SingleCoin } from "../configration/api";
 import { CryptoState } from "../Context";
 import ReactHtMLParser from "react-html-parser";
@@ -16,7 +16,6 @@ const CoinPage = () => {
     const { data } = await axios.get(SingleCoin(id));
     setCoin(data);
   };
-  console.log(coin);
   useEffect(() => {
     fetchCoin();
   }, []);

@@ -8,7 +8,7 @@ export default function AboutUs() {
     bordeRadius: "2px solid skyblue",
   };
   return (
-    <div className="hey" style={myStyle}>
+    <div className="BitMarket" style={myStyle}>
       <h2 className="text-center info">FAQ</h2>
       <div className="accordion" id="accordionExample">
         <div className="accordion-item">
