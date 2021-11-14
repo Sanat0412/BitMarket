@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage:
       "url(https://media.istockphoto.com/photos/bitcoin-cryptocurrency-futuristic-innovation-digital-picture-id1297074905?b=1&k=20&m=1297074905&s=170667a&w=0&h=pHcAAJHae3yjXVcOwnu0lCAPClwLxy6HUn4OitrBiic=)",
     opacity: 0.8,
+    backgroundSize: "cover",
   },
   bannerContent: {
     height: 400,
