@@ -1,6 +1,6 @@
 {
-  "name": "bitmarket",
   "homepage": "https://bobychaudhary.github.io/BitMarket",
+  "name": "bitmarket",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
