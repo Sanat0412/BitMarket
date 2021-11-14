@@ -50,6 +50,24 @@ const CoinPage = () => {
         paddingTop: 0,
         textAlign: "justify",
       },
+      marketData: {
+        alignSelf: "start",
+        padding: 25,
+        paddingTop: 10,
+        width: "100%",
+        display: "flex",
+      },
+      [theme.breakpoints.down("md")]: {
+        display: "flex",
+        justifyContent: "space-around",
+      },
+      [theme.breakpoints.down("sm")]: {
+        display: "column",
+        alignItems: "center",
+      },
+      [theme.breakpoints.down("xs")]: {
+        alignItems: "start",
+      },
     },
   }));
   const classes = useStyles();
