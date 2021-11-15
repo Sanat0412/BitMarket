@@ -15,10 +15,10 @@ const usestyles = makeStyles(() => ({
   },
 }));
 function App() {
-  const Classes = usestyles();
+  const classes = usestyles();
   return (
     <BrowserRouter>
-      <div className={Classes.App}>
+      <div className={classes.App}>
         <Header />
         <Route path="/" component={Homepage} exact />
         <Route path="/coin/:id" component={CoinPage} exact />

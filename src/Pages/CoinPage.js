@@ -2,7 +2,7 @@ import { LinearProgress, makeStyles, Typography } from "@material-ui/core";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import {CoinInfo} from "../components/CoinInfo";
+import CoinInfo from "../components/CoinInfo";
 import { SingleCoin } from "../configration/api";
 import { CryptoState } from "../Context";
 import ReactHtMLParser from "react-html-parser";
@@ -70,7 +70,7 @@ const CoinPage = () => {
     },
   }));
   const classes = useStyles();
-  if (!coin) return <LinearProgress style={{ backgroundColor: "orange" }} />;
+  if (!coin) return <LinearProgress style={{ backgroundColor: "skyblue" }} />;
   return (
     <div className={classes.container}>
       <div className={classes.sidebar}>
@@ -91,9 +91,9 @@ const CoinPage = () => {
             <Typography
               variant="h5"
               className={classes.heading}
-              style={{ fontFamily: "Montserrat" }}
+              style={{ fontFamily: "Montserrat", marginTop: 10 }}
             >
-              Rank: {coin?.market_cap_rank}
+              Rank: { coin?.market_cap_rank}
             </Typography>
           </span>
           <span style={{ display: "flex" }}>

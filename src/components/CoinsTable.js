@@ -21,6 +21,8 @@ import { CoinList } from "../configration/api";
 import { CryptoState } from "../Context";
 import { numberWithCommas } from "../components/Banner/Carousel";
 import Pagination from "@material-ui/lab/Pagination";
+import AboutUs from "./AboutUs";
+import Footer from "./Footer";
 
 const CoinsTable = () => {
   const [coins, setCoins] = useState([]);
@@ -79,7 +81,10 @@ const CoinsTable = () => {
   return (
     <ThemeProvider theme={darkTheme}>
       <Container style={{ textAlign: "center" }}>
-        <Typography variant="h3" style={{ color: "skyblue", margin: 18, fontFamily: "bold" }}>
+        <Typography
+          variant="h3"
+          style={{ color: "skyblue", margin: 18, fontFamily: "bold" }}
+        >
           CryptoCurrency Prices by Market Cap
         </Typography>
         <TextField
@@ -183,8 +188,7 @@ const CoinsTable = () => {
                           }}
                         >
                           {profit && "+"}
-                          {row.price_change_percentage_24h.toFixed(2)}%{" "}
-                          {/*error*/}
+                          {row.price_change_percentage_24h.toFixed(2)}% {/*error*/}
                         </TableCell>
                         <TableCell align="right">
                           {symbol}{" "}
@@ -213,10 +217,14 @@ const CoinsTable = () => {
             setPage(value);
             window.scroll(0, 450);
           }}
-        />
+        />{" "}
+        <AboutUs />
+        <Footer />
+      
       </Container>
     </ThemeProvider>
   );
+  
 };
 
 export default CoinsTable;
