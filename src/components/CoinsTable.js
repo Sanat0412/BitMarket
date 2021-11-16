@@ -16,13 +16,15 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { CoinList } from "../configration/api";
 import { CryptoState } from "../Context";
 import { numberWithCommas } from "../components/Banner/Carousel";
 import Pagination from "@material-ui/lab/Pagination";
 import AboutUs from "./AboutUs";
 import Footer from "./Footer";
+import RangeSlider from "./RangeSlider";
+import { SingleCoin } from "../configration/api";
 
 const CoinsTable = () => {
   const [coins, setCoins] = useState([]);
@@ -30,6 +32,15 @@ const CoinsTable = () => {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const { currency, symbol } = CryptoState();
+  const { id } = useParams();
+  const [coin, setCoin] = useState();
+  const fetchCoin = async () => {
+    const { data } = await axios.get(SingleCoin(id));
+    setCoin(data);
+  };
+  useEffect(() => {
+    fetchCoin();
+  }, []);
 
   const useStyles = makeStyles({
     row: {
@@ -93,6 +104,7 @@ const CoinsTable = () => {
           style={{ marginBottom: 22, width: "100%" }}
           onChange={(e) => setSearch(e.target.value)}
         />
+        <RangeSlider />
         <TableContainer component={Paper}>
           {loading ? (
             <LinearProgress style={{ backgroundColor: "skyblue" }} />
@@ -101,6 +113,7 @@ const CoinsTable = () => {
               <TableHead style={{ backgroundColor: "skyblue" }}>
                 <TableRow>
                   {[
+                    "Rank",
                     "Coin",
                     "Price",
                     "24 Change",
@@ -114,7 +127,7 @@ const CoinsTable = () => {
                         fontFamily: "Bold",
                       }}
                       key={head}
-                      align={head === "Coin" ? " " : "right"}
+                      align={head === "Rank" ? " " : "left"}
                     >
                       {head}
                     </TableCell>
@@ -123,7 +136,7 @@ const CoinsTable = () => {
               </TableHead>
               <TableBody>
                 {handleSearch()
-                  .slice((page - 1) * 10, (page - 1) * 10 + 10)
+                  .slice((page - 1) * 20, (page - 1) * 20 + 20)
                   .map((row) => {
                     const profit = row.price_change_percentage_24h > 0;
                     return (
@@ -132,12 +145,30 @@ const CoinsTable = () => {
                         className={classes.row}
                         key={row.name}
                       >
+                        <TableCell>
+                          <div className={classes.marketData}>
+                            <span style={{ display: "flex" }}>
+                              <Typography
+                                variant="h5"
+                                className={classes.heading}
+                                style={{
+                                  fontFamily: "Montserrat",
+                                  marginTop: 10,
+                                }}
+                              >
+                                {row.market_cap_rank}
+                                
+                              </Typography>
+                            </span>
+                          </div>
+                        </TableCell>
                         <TableCell
+                          align="left"
                           component="th"
                           scope="row"
                           style={{
                             display: "flex",
-                            gap: 15,
+                            gap: 10,
                           }}
                         >
                           <img
@@ -166,12 +197,12 @@ const CoinsTable = () => {
                             </span>
                           </div>
                         </TableCell>
-                        <TableCell align="right">
+                        <TableCell align="left">
                           {symbol}{" "}
                           {numberWithCommas(row.current_price.toFixed(2))}
                         </TableCell>
                         <TableCell
-                          align="right"
+                          align="left"
                           style={{
                             color: profit > 0 ? "green" : "red",
                             fontWeight: 480,
@@ -181,21 +212,22 @@ const CoinsTable = () => {
                           {row.price_change_percentage_24h.toFixed(2)}%
                         </TableCell>
                         <TableCell
-                          align="right"
+                          align="left"
                           style={{
                             color: profit > 0 ? "green" : "red",
                             fontWeight: 480,
                           }}
                         >
                           {profit && "+"}
-                          {row.price_change_percentage_24h.toFixed(2)}% {/*error*/}
+                          {row.price_change_percentage_24h.toFixed(2)}%{" "}
+                          {/*error*/}
                         </TableCell>
-                        <TableCell align="right">
+                        <TableCell align="left">
                           {symbol}{" "}
                           {numberWithCommas(
-                            row.market_cap.toString().slice(0, -6)
+                            row.market_cap.toFixed(0).toString()
                           )}
-                          M
+                          
                         </TableCell>
                       </TableRow>
                     );
@@ -205,7 +237,7 @@ const CoinsTable = () => {
           )}
         </TableContainer>
         <Pagination
-          count={(handleSearch()?.length / 10).toFixed(0)}
+          count={(handleSearch()?.length / 20).toFixed(0)}
           style={{
             padding: 20,
             width: "100%",
@@ -220,11 +252,9 @@ const CoinsTable = () => {
         />{" "}
         <AboutUs />
         <Footer />
-      
       </Container>
     </ThemeProvider>
   );
-  
 };
 
 export default CoinsTable;
