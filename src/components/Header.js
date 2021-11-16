@@ -6,6 +6,7 @@ import {
   Select,
   Typography,
 } from "@material-ui/core";
+
 import {
   createTheme,
   ThemeProvider,
@@ -45,7 +46,10 @@ function Header() {
               onClick={() => history.push(`/`)}
               className={classes.title}
             >
-              BitMarket
+              <img
+                style={{ width: "70px" }}
+                src="../WhatsApp Image 2021-11-16 at 11.21.31 AM.jpeg"
+              />
             </Typography>
 
             <Select
