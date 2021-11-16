@@ -1,4 +1,4 @@
-import { LinearProgress, makeStyles, Typography } from "@material-ui/core";
+import { LinearProgress, makeStyles, Paper, TableContainer, Typography } from "@material-ui/core";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
@@ -12,6 +12,7 @@ const CoinPage = () => {
   const { id } = useParams();
   const [coin, setCoin] = useState();
   const { currency, symbol } = CryptoState();
+    // const [loading, setloading] = useState(false);
   const fetchCoin = async () => {
     const { data } = await axios.get(SingleCoin(id));
     setCoin(data);
@@ -30,7 +31,7 @@ const CoinPage = () => {
     sidebar: {
       width: "30%",
       [theme.breakpoints.down("md")]: {
-        display: "flex",
+        
         flexDirection: "column",
         alignItems: "center",
         marginTop: 25,
@@ -57,7 +58,7 @@ const CoinPage = () => {
         display: "flex",
       },
       [theme.breakpoints.down("md")]: {
-        display: "flex",
+        // display: "flex",
         justifyContent: "space-around",
       },
       [theme.breakpoints.down("sm")]: {
@@ -93,7 +94,7 @@ const CoinPage = () => {
               className={classes.heading}
               style={{ fontFamily: "Montserrat", marginTop: 10 }}
             >
-              Rank: { coin?.market_cap_rank}
+              Rank: {coin?.market_cap_rank}
             </Typography>
           </span>
           <span style={{ display: "flex" }}>
@@ -102,10 +103,10 @@ const CoinPage = () => {
               className={classes.heading}
               style={{ fontFamily: "Montserrat" }}
             >
-              Current Price:
-              &nbsp; 
-              {symbol} {""} 
-              {numberWithCommas(coin?.market_data.current_price[currency.toLowerCase()]
+              Current Price: &nbsp;
+              {symbol} {""}
+              {numberWithCommas(
+                coin?.market_data.current_price[currency.toLowerCase()]
               )}
             </Typography>
           </span>
@@ -117,17 +118,29 @@ const CoinPage = () => {
             <Typography variant="h5" style={{ fontFamily: "Montserrat" }}>
               {symbol}{" "}
               {numberWithCommas(
-                coin?.market_data.market_cap[currency.toLowerCase()]
-                  .toString()
-                  
+                coin?.market_data.market_cap[currency.toLowerCase()].toString()
               )}
-              
             </Typography>
           </span>
         </div>
       </div>
       <CoinInfo coin={coin} />
+      {/* <TableContainer component={Paper}>
+        <loading ?(
+          <LinearProgress style={{ backgroundColor: "skyblue" }} />
+        ):(
+          <Table aria-label="simple table">
+            <TableHead style={{ backgroundColor: "skyblue" }}>
+              <TableRow>
+
+              </TableRow>
+            </TableHead>
+          </Table>
+        )
+
+      </TableContainer> */}
     </div>
+    
   );
 };
 
