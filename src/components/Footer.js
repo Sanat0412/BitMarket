@@ -1,5 +1,4 @@
 import React from "react";
-import AnotherApi from "./AnotherApi";
 
 const Footer = () => {
   return (
@@ -115,7 +114,7 @@ const Footer = () => {
       </div>
     </footer>
    
-  ); <AnotherApi />;
+  ); 
 };
 
 export default Footer;

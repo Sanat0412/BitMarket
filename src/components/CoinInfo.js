@@ -93,9 +93,10 @@ const CoinInfo = ({ coin }) => {
             <div
               style={{
                 display: "flex",
+                float: "right",
                 marginTop: 20,
                 justifyContent: "space-around",
-                width: "100%",
+                width: "75%",
               }}
             >
               {chartDays.map((day) => (

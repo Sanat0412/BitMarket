@@ -25,7 +25,8 @@ import AboutUs from "./AboutUs";
 import Footer from "./Footer";
 import RangeSlider from "./RangeSlider";
 import { SingleCoin } from "../configration/api";
-import AnotherApi from "./AnotherApi";
+import CoinTable2 from "./CoinTable2";
+
 
 const CoinsTable = () => {
   const [coins, setCoins] = useState([]);
@@ -253,7 +254,8 @@ const CoinsTable = () => {
         />{" "}
         <AboutUs />
         <Footer />
-        <AnotherApi/>
+        <CoinTable2/>
+
       </Container>
     </ThemeProvider>
   );
