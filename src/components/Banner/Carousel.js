@@ -71,7 +71,10 @@ const Carousel = () => {
     0: {
       items: 2,
     },
-    512: {
+    400: {
+      items: 3,
+    },
+    612: {
       items: 4,
     },
   };
