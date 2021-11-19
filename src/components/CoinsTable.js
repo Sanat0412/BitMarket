@@ -26,6 +26,7 @@ import Footer from "./Footer";
 import RangeSlider from "./RangeSlider";
 import { SingleCoin } from "../configration/api";
 import CoinTable2 from "./CoinTable2";
+import {useSortBy} from "react-table";
 
 
 const CoinsTable = () => {
@@ -89,8 +90,9 @@ const CoinsTable = () => {
         coin.name.toLowerCase().includes(search) ||
         coin.symbol.toLowerCase().includes(search)
       );
-    });
+    }, useSortBy);
   };
+  
   return (
     <ThemeProvider theme={darkTheme}>
       <Container style={{ textAlign: "center" }}>

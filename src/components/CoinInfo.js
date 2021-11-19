@@ -7,6 +7,7 @@ import { HistoricalChart } from "../configration/api";
 import { CryptoState } from "../Context";
 import { chartDays } from "../configration/data";
 import SelectButton from "./Button";
+import { Line } from "react-chartjs-2";
 
 const CoinInfo = ({ coin }) => {
   const [historicData, setHistoricData] = useState();
@@ -14,14 +15,34 @@ const CoinInfo = ({ coin }) => {
 
   const { currency } = CryptoState();
 
+    const useStyles = makeStyles((theme) => ({
+      container: {
+        width: "75%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: "25",
+        padding: "40",
+        [theme.breakpoints.down("md")]: {
+          width: "100%",
+          marginTop: "0",
+          padding: "20",
+          paddingTop: "0",
+        },
+      },
+    }));
+
+    const classes = useStyles();
+
   const fetchHistoricData = async () => {
     const { data } = await axios.get(HistoricalChart(coin.id, days, currency));
     setHistoricData(data.prices);
   };
-  console.log("data", historicData);
+   console.log(coin);
   useEffect(() => {
     fetchHistoricData();
-  }, [currency, days]);
+  }, [days]);
 
   const darkTheme = createTheme({
     palette: {
@@ -31,37 +52,19 @@ const CoinInfo = ({ coin }) => {
       type: "dark",
     },
   });
-  const useStyles = makeStyles((theme) => ({
-    container: {
-      width: "75%",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      marginTop: "25",
-      padding: "40",
-      [theme.breakpoints.down("md")]: {
-        width: "100%",
-        marginTop: "0",
-        padding: "20",
-        paddingTop: "0",
-      },
-    },
-  }));
 
-  const classes = useStyles();
   return (
     <ThemeProvider theme={darkTheme}>
       <div className={Classnames.container}>
         {!historicData ? (
           <CircularProgress
-            style={{ color: "skyblue" }}
+            style={{ color: "gradient[0]"}}
             size={250}
-            thickness={2}
+            thickness={1}
           />
         ) : (
           <>
-            <line
+            <Line
               data={{
                 labels: historicData.map((coin) => {
                   let date = new Date(coin[0]);
@@ -76,7 +79,7 @@ const CoinInfo = ({ coin }) => {
                   //  {data:historicData.map((coin)=>coin[1])},
                   {
                     data: historicData.map((coin) => coin[1]),
-                    label: `Price (Past ${days} Days) in ${currency}`,
+                    label: `Price ( Past ${days} Days ) in ${currency}`,
                     borderColor: "skyblue",
                   },
                 ],
@@ -93,10 +96,9 @@ const CoinInfo = ({ coin }) => {
             <div
               style={{
                 display: "flex",
-                float: "right",
                 marginTop: 20,
                 justifyContent: "space-around",
-                width: "75%",
+                width: "100%",
               }}
             >
               {chartDays.map((day) => (

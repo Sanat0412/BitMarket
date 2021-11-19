@@ -1,55 +1,133 @@
-import { Container } from "@material-ui/core";
+import {
+  Container,
+  LinearProgress,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from "@material-ui/core";
 import { Table, Row, Col } from "reactstrap";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { numberWithCommas } from "./Banner/Carousel";
+import { CryptoState } from "../Context";
+import { CoinList, SingleCoin } from "../configration/api";
+import { useParams } from "react-router";
 
 const CoinTable2 = () => {
+  const [loading, setloading] = useState(false);
+  const { currency, symbol } = CryptoState();
   const [coins, setCoins] = useState([]);
+  const [coin, setCoin] = useState();
+  const { id } = useParams();
+
+  const fetchCoin = async () => {
+    const { data } = await axios.get(
+      `https://gnews.io/api/v4/top-headlines?token=633fa8e153883785b56f3ca6b7de2b2b`
+    );
+    setCoin(data);
+    console.log(data);
+  };
   useEffect(() => {
-    axios
-      .get(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C%2024h%2C%207d%2C%20%2030d"
-      )
-      .then((res) => {
-        setCoins(res.data);
-        console.log(res.data);
-      })
-      .catch((error) => console.error("Error"));
+    fetchCoin();
   }, []);
   return (
-    <div className="CoinTable2">
-      <Container>
-        <Row>
-          <Col md="12">
-            <Table className="mt-5" dark>
-              <thead>
-                <tr>
-                  <th>ATH</th>
-                  <th>ATH_Change_Percentage</th>
-                  <th>ATH_Date</th>
-                  <th>ATL</th>
-                  <th>ATL_Change_Percentage</th>
-                  <th>ATL_Date</th>
-                  <th>Max_Supply</th>
-                </tr>
-              </thead>
-
-              {coins.map((hey) => {
-                <tbody>
-                  <td>{hey.ath}</td>
-                  <td>{hey.ath_change_percentage}</td>
-                  <td>{hey.ath_date}</td>
-                  <td>{hey.atl}</td>
-                  <td>{hey.atl_change_percentage}</td>
-                  <td>{hey.atl_date}</td>
-                  <td>{hey.max_supply}</td>
-                </tbody>;
-              })}
-            </Table>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <TableContainer style={{ marginTop: "30px" }}>
+      {loading ? (
+        <LinearProgress style={{ backgroundColor: "skyblue" }} />
+      ) : (
+        <Table aria-label="simple table">
+          <TableHead style={{ backgroundColor: "skyblue" }}>
+            <TableRow>
+              {[
+                "ATH",
+                "ATH_Change_Percentage",
+                "ATH_Date",
+                "ATL",
+                "ATL_Change_Percentage",
+                "ATL_Date",
+                "Maximum Supply",
+              ].map((coin) => (
+                <TableCell
+                  style={{
+                    color: "black",
+                    fontWeight: "680",
+                    fontFamily: "Bold",
+                  }}
+                  key={coin.content }
+                  // align={coin === "ATH" ? " " : "left"}
+                >
+                  {coin}
+                </TableCell>
+              ))}
+            </TableRow>
+            {/* <TableCell>
+              <Typography variant="h3">{coin.coingecko_zrank}</Typography>
+            </TableCell>
+             <TableCell>
+              <Typography variant="h5" style={{ fontFamily: "Montserrat" }}>
+                {coin?.ath}
+              </Typography>
+            </TableCell>  */}
+            {/* <TableCell>
+              <Typography
+                variant="h5"
+                style={{ fontFamily: "Montserrat" }}
+              >
+                {numberWithCommas(
+                  coin?.market_data.ath_date[currency.toLowerCase()]
+                )}
+              </Typography>
+            </TableCell>
+            <TableCell>
+              <Typography
+                variant="h5"
+                style={{ fontFamily: "Montserrat" }}
+              >
+                {numberWithCommas(
+                  coin?.market_data.atl[currency.toLowerCase()]
+                )}
+              </Typography>
+            </TableCell>
+            <TableCell>
+              <Typography
+                variant="h5"
+                style={{ fontFamily: "Montserrat" }}
+              >
+                {numberWithCommas(
+                  coin?.market_data.atl_change_percentage[
+                    currency.toLowerCase()
+                  ]
+                )}
+              </Typography>
+            </TableCell>
+            <TableCell>
+              <Typography
+                variant="h5"
+                style={{ fontFamily: "Montserrat" }}
+              >
+                {numberWithCommas(
+                  coin?.market_data.atl_date[currency.toLowerCase()]
+                )}
+              </Typography>
+            </TableCell> */}
+            {/* <TableCell>
+                <Typography
+                  variant="h5"
+                    style={{ fontFamily: "Montserrat" }}
+                >
+                  {numberWithCommas(
+                    coin?.market_data.total_supply[currency.toLowerCase()]
+                  )}
+                </Typography>
+              </TableCell> */}
+          </TableHead>
+          <TableBody></TableBody>
+        </Table>
+      )}
+    </TableContainer>
   );
 };
 
