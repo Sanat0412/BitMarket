@@ -22,6 +22,7 @@ function App() {
         <Header />
         <Route path="/" component={Homepage} exact />
         <Route path="/coin/:id" component={CoinPage} exact />
+        {/* <Route path="/coin/:dogecoin" component={CoinPage} exact /> */}
       </div>
     </BrowserRouter>
   );

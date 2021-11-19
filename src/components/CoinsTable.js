@@ -256,7 +256,6 @@ const CoinsTable = () => {
         />{" "}
         <AboutUs />
         <Footer />
-        <CoinTable2/>
 
       </Container>
     </ThemeProvider>
