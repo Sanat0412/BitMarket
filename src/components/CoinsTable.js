@@ -261,5 +261,6 @@ const CoinsTable = () => {
     </ThemeProvider>
   );
 };
+/* exported render */
 
 export default CoinsTable;
