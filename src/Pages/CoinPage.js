@@ -64,7 +64,6 @@ const CoinPage = () => {
       padding: 25,
       paddingTop: 10,
       width: "100%",
-
       [theme.breakpoints.down("md")]: {
         display: "flex",
         justifyContent: "space-around",

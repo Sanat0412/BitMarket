@@ -22,8 +22,7 @@ import { CryptoState } from "../Context";
 import { numberWithCommas } from "../components/Banner/Carousel";
 import Pagination from "@material-ui/lab/Pagination";
 import AboutUs from "./AboutUs";
-import Footer from "./Footer";
-import RangeSlider from "./RangeSlider";
+// import Footer from "./Footer";
 import { SingleCoin } from "../configration/api";
 import CoinTable2 from "./CoinTable2";
 import {useSortBy} from "react-table";
@@ -108,7 +107,6 @@ const CoinsTable = () => {
           style={{ marginBottom: 22, width: "100%" }}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <RangeSlider />
         <TableContainer component={Paper}>
           {loading ? (
             <LinearProgress style={{ backgroundColor: "skyblue" }} />
@@ -255,7 +253,7 @@ const CoinsTable = () => {
           }}
         />{" "}
         <AboutUs />
-        <Footer />
+        {/* <Footer /> */}
 
       </Container>
     </ThemeProvider>
