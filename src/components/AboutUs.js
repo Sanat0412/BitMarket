@@ -129,7 +129,47 @@ export default function AboutUs() {
             </div>
           </div>
         </div>
+        {/* <img
+          style={{ width: "100%", height: "350px", float: "left" }}
+          src="../WhatsApp Image 2021-11-16 at 11.21.31 AM.jpeg"
+        /> */}{" "}
+       <h1 style={{ marginTop: 20}}> Connect With Us</h1>
+          <div className="row pt-5">
+            <div class="col-md-12 border  py-4">
+              <div class="mb-4 sa-4 p-4 flex-center">
+                <a class="fb-ic ">
+                  <i class="fa fa-facebook px-5 fa-lg white-text mr-md-5 mr-3 fa-2x">
+                    {" "}
+                  </i>
+                </a>
+                <a class="tw-ic">
+                  <i class="fa fa-twitter px-5 fa-lg white-text mr-md-5 mr-3 fa-2x">
+                    {" "}
+                  </i>
+                </a>
+
+                <a class="gplus-ic">
+                  <i class="fa fa-google-plus px-5 fa-lg white-text mr-md-5 mr-3 fa-2x">
+                    {" "}
+                  </i>
+                </a>
+                <a class="li-ic">
+                  <i class="fa fa-linkedin px-5 fa-lg white-text mr-md-5 mr-3 fa-2x">
+                    {" "}
+                  </i>
+                </a>
+
+                <a class="ins-ic">
+                  <i class="fa fa-instagram px-5 fa-lg white-text mr-md-5 mr-3 fa-2x">
+                    {" "}
+                  </i>
+                </a>
+                
+
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
   );
 }
