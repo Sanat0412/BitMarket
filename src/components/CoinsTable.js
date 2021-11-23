@@ -21,7 +21,7 @@ import { CoinList } from "../configration/api";
 import { CryptoState } from "../Context";
 import { numberWithCommas } from "../components/Banner/Carousel";
 import Pagination from "@material-ui/lab/Pagination";
-import AboutUs from "./AboutUs";
+// import AboutUs from "./AboutUs";
 // import Footer from "./Footer";
 import { SingleCoin } from "../configration/api";
 import CoinTable2 from "./CoinTable2";
@@ -138,7 +138,7 @@ const CoinsTable = () => {
               </TableHead>
               <TableBody>
                 {handleSearch()
-                  .slice((page - 1) * 20, (page - 1) * 20 + 20)
+                  .slice((page - 1) * 25, (page - 1) * 25 + 25)
                   .map((row) => {
                     const profit = row.price_change_percentage_24h > 0;
                     return (
@@ -239,7 +239,7 @@ const CoinsTable = () => {
           )}
         </TableContainer>
         <Pagination
-          count={(handleSearch()?.length / 20).toFixed(0)}
+          count={(handleSearch()?.length / 25).toFixed(0)}
           style={{
             padding: 20,
             width: "100%",
@@ -252,7 +252,7 @@ const CoinsTable = () => {
             window.scroll(0, 450);
           }}
         />{" "}
-        <AboutUs />
+        {/* <AboutUs /> */}
         {/* <Footer /> */}
 
       </Container>
