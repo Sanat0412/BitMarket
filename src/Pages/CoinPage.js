@@ -178,17 +178,17 @@ const CoinPage = () => {
           </span>
           <span style={{ display: "flex" }}>
             <Typography variant="h5" className={classes.heading}>
-              ATL:
+              ATL Date:
             </Typography>
             &nbsp; &nbsp;
             <Typography
-              variant="h5"
+              variant="h6"
               style={{
                 fontFamily: "Montserrat",
               }}
             >
               {symbol}{" "}
-              {numberWithCommas(coin?.market_data.atl_date[currency.toLowerCase()])}
+              {numberWithCommas(coin?.market_data.atl_date[currency.toLowerCase()].slice(0,-14))}
             </Typography>
           </span>
         </div>
