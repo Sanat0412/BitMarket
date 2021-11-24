@@ -138,7 +138,7 @@ const CoinsTable = () => {
               </TableHead>
               <TableBody>
                 {handleSearch()
-                  .slice((page - 1) * 25, (page - 1) * 25 + 25)
+                  .slice((page - 1) * 30, (page - 1) * 30 + 30)
                   .map((row) => {
                     const profit = row.price_change_percentage_24h > 0;
                     return (
@@ -239,7 +239,7 @@ const CoinsTable = () => {
           )}
         </TableContainer>
         <Pagination
-          count={(handleSearch()?.length / 25).toFixed(0)}
+          count={(handleSearch()?.length / 30).toFixed(0)}
           style={{
             padding: 20,
             width: "100%",
