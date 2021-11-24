@@ -119,7 +119,6 @@ const CoinsTable = () => {
                     "Coin",
                     "Price",
                     "24 Change",
-                    "7 Day Change",
                     "Market Cap",
                   ].map((head) => (
                     <TableCell
@@ -213,6 +212,7 @@ const CoinsTable = () => {
                           {profit && "+"}
                           {row.price_change_percentage_24h.toFixed(2)}%
                         </TableCell>
+                        {/* Not able to fetch 7d change from api
                         <TableCell
                           align="left"
                           style={{
@@ -222,8 +222,7 @@ const CoinsTable = () => {
                         >
                           {profit && "+"}
                           {row.price_change_percentage_24h.toFixed(2)}%{" "}
-                          {/*error*/}
-                        </TableCell>
+                        </TableCell> */}
                         <TableCell align="left">
                           {symbol}{" "}
                           {numberWithCommas(

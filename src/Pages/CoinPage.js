@@ -65,7 +65,8 @@ const CoinPage = () => {
       paddingTop: 10,
       width: "100%",
       [theme.breakpoints.down("md")]: {
-        display: "flex",
+        // display: "flex",
+        flexDirection: "row",
         justifyContent: "space-around",
       },
       [theme.breakpoints.down("sm")]: {
@@ -163,6 +164,23 @@ const CoinPage = () => {
           </span>
           <span style={{ display: "flex" }}>
             <Typography variant="h5" className={classes.heading}>
+              ATH Date:
+            </Typography>
+            &nbsp; &nbsp;
+            <Typography
+              variant="h6"
+              style={{
+                fontFamily: "Montserrat",
+              }}
+            >
+              {symbol}{" "}
+              {numberWithCommas(
+                coin?.market_data.ath_date[currency.toLowerCase()].slice(0, -14)
+              )}
+            </Typography>
+          </span>
+          <span style={{ display: "flex" }}>
+            <Typography variant="h5" className={classes.heading}>
               ATL:
             </Typography>
             &nbsp; &nbsp;
@@ -188,7 +206,9 @@ const CoinPage = () => {
               }}
             >
               {symbol}{" "}
-              {numberWithCommas(coin?.market_data.atl_date[currency.toLowerCase()].slice(0,-14))}
+              {numberWithCommas(
+                coin?.market_data.atl_date[currency.toLowerCase()].slice(0, -14)
+              )}
             </Typography>
           </span>
         </div>
