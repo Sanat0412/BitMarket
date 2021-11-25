@@ -55,7 +55,7 @@ const CoinInfo = ({ coin }) => {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <div className={Classnames.container}>
+      <div className={classes.container}>
         {!historicData ? (
           <CircularProgress
             style={{ color: "gradient[0]"}}
