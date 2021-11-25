@@ -26,6 +26,7 @@ import Pagination from "@material-ui/lab/Pagination";
 import { SingleCoin } from "../configration/api";
 import CoinTable2 from "./CoinTable2";
 import {useSortBy} from "react-table";
+import FAQ from "./FAQ";
 
 
 const CoinsTable = () => {
@@ -114,30 +115,26 @@ const CoinsTable = () => {
             <Table aria-label="simple table">
               <TableHead style={{ backgroundColor: "skyblue" }}>
                 <TableRow>
-                  {[
-                    "Rank",
-                    "Coin",
-                    "Price",
-                    "24 Change",
-                    "Market Cap",
-                  ].map((head) => (
-                    <TableCell
-                      style={{
-                        color: "black",
-                        fontWeight: "680",
-                        fontFamily: "Bold",
-                      }}
-                      key={head}
-                      align={head === "Rank" ? " " : "left"}
-                    >
-                      {head}
-                    </TableCell>
-                  ))}
+                  {["Rank", "Coin", "Price", "24 Change", "Market Cap"].map(
+                    (head) => (
+                      <TableCell
+                        style={{
+                          color: "black",
+                          fontWeight: "680",
+                          fontFamily: "Bold",
+                        }}
+                        key={head}
+                        align={head === "Rank" ? " " : "left"}
+                      >
+                        {head}
+                      </TableCell>
+                    )
+                  )}
                 </TableRow>
               </TableHead>
               <TableBody>
                 {handleSearch()
-                  .slice((page - 1) * 30, (page - 1) * 30 + 30)
+                  .slice((page - 1) * 40, (page - 1) * 40 + 40)
                   .map((row) => {
                     const profit = row.price_change_percentage_24h > 0;
                     return (
@@ -158,7 +155,6 @@ const CoinsTable = () => {
                                 }}
                               >
                                 {row.market_cap_rank}
-                                
                               </Typography>
                             </span>
                           </div>
@@ -212,23 +208,12 @@ const CoinsTable = () => {
                           {profit && "+"}
                           {row.price_change_percentage_24h.toFixed(2)}%
                         </TableCell>
-                        {/* Not able to fetch 7d change from api
-                        <TableCell
-                          align="left"
-                          style={{
-                            color: profit > 0 ? "green" : "red",
-                            fontWeight: 480,
-                          }}
-                        >
-                          {profit && "+"}
-                          {row.price_change_percentage_24h.toFixed(2)}%{" "}
-                        </TableCell> */}
+
                         <TableCell align="left">
                           {symbol}{" "}
                           {numberWithCommas(
                             row.market_cap.toFixed(0).toString()
                           )}
-                          
                         </TableCell>
                       </TableRow>
                     );
@@ -238,7 +223,7 @@ const CoinsTable = () => {
           )}
         </TableContainer>
         <Pagination
-          count={(handleSearch()?.length / 30).toFixed(0)}
+          count={(handleSearch()?.length / 40).toFixed(0)}
           style={{
             padding: 20,
             width: "100%",
@@ -251,9 +236,10 @@ const CoinsTable = () => {
             window.scroll(0, 450);
           }}
         />{" "}
+        <h1 style={{color: "skyblue"}}>FAQ</h1>
+        <FAQ/>
         {/* <AboutUs /> */}
         {/* <Footer /> */}
-
       </Container>
     </ThemeProvider>
   );

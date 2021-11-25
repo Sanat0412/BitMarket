@@ -7,7 +7,6 @@ const Footer = () => {
       <div>
         <div class="container"></div>
       </div>
-
       <div
         class="container text-center text-md-left mt-5"
         // style={{
