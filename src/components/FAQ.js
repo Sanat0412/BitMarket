@@ -1,21 +1,22 @@
-import React from 'react'
+import React from "react";
 
 const FAQ = () => {
-    return (
-      <div>
-        <div className="accordion text-info" id="accordionExample ">
-          <div className="accordion-item  bg-dark">
-            <h2 className="accordion-header " id="headingOne">
+  return (
+    <div>
+      <div className="container">
+        <div className="accordion" id="accordionExample">
+          <div className="accordion-item text-info bg-dark">
+            <h2 className="accordion-header" id="headingOne">
               <button
                 className="accordion-button"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseOne"
-                aria-expanded="true"
+                aria-expanded="false"
                 aria-controls="collapseOne"
                 style={{ backgroundColor: "black", color: "skyblue" }}
               >
-                1. Coin Price, Market Capitalization, Volume - What are they?{" "}
+                1. Coin Price, Market Capitalization, Volume - What are they?
               </button>
             </h2>
             <div
@@ -38,6 +39,7 @@ const FAQ = () => {
               </div>
             </div>
           </div>
+
           <div className="accordion-item text-info bg-dark">
             <h2 className="accordion-header " id="headingTwo">
               <button
@@ -67,6 +69,7 @@ const FAQ = () => {
               </div>
             </div>
           </div>
+
           <div className="accordion-item text-info bg-dark">
             <h2 className="accordion-header" id="headingThree">
               <button
@@ -102,100 +105,102 @@ const FAQ = () => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="accordion-item text-info bg-dark">
-          <h2 className="accordion-header" id="headingFour">
-            <button
-              className="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseFour"
-              aria-expanded="false"
-              aria-controls="collapseFour"
-              style={{ backgroundColor: "black", color: "skyblue" }}
-            >
-              4. How are cryptocurrency transactions recorded?
-            </button>
-          </h2>
-          <div
-            id="collapseFour"
-            className="accordion-collapse collapse"
-            aria-labelledby="headingFour"
-            data-bs-parent="#accordionExample"
-          >
-            <div className="accordion-body">
-              Cryptocurrency transactions are recorded on a shared, digital
-              ledger called a blockchain. This is decentralized technology,
-              spread across many computers, that records every transaction.
-            </div>
-          </div>
           <div className="accordion-item text-info bg-dark">
-            <h2 className="accordion-header" id="headingFive">
+            <h2 className="accordion-header" id="headingFour">
               <button
                 className="accordion-button collapsed"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#collapseFive"
+                data-bs-target="#collapseFour"
                 aria-expanded="false"
-                aria-controls="collapseFive"
+                aria-controls="collapseFour"
                 style={{ backgroundColor: "black", color: "skyblue" }}
               >
-                5. Are blockchain and cryptocurrencies the same?
+                4. How are cryptocurrency transactions recorded?
               </button>
             </h2>
             <div
-              id="collapseFive"
+              id="collapseFour"
               className="accordion-collapse collapse"
-              aria-labelledby="headingFive"
+              aria-labelledby="headingFour"
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                No. Blockchain is the technology that allows for
-                cryptocurrencies to work. It is a decentralized and digital
-                ledger of transactions used for cryptocurrencies and other
-                assets/functions. It is important to separate the technology
-                behind cryptocurrencies from the actual cryptocurrencies.
+                Cryptocurrency transactions are recorded on a shared, digital
+                ledger called a blockchain. This is decentralized technology,
+                spread across many computers, that records every transaction.
+              </div>
+            </div>
+            <div className="accordion-item text-info bg-dark">
+              <h2 className="accordion-header" id="headingFive">
+                <button
+                  className="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseFive"
+                  aria-expanded="false"
+                  aria-controls="collapseFive"
+                  style={{ backgroundColor: "black", color: "skyblue" }}
+                >
+                  5. Are blockchain and cryptocurrencies the same?
+                </button>
+              </h2>
+              <div
+                id="collapseFive"
+                className="accordion-collapse collapse"
+                aria-labelledby="headingFive"
+                data-bs-parent="#accordionExample"
+              >
+                <div className="accordion-body">
+                  No. Blockchain is the technology that allows for
+                  cryptocurrencies to work. It is a decentralized and digital
+                  ledger of transactions used for cryptocurrencies and other
+                  assets/functions. It is important to separate the technology
+                  behind cryptocurrencies from the actual cryptocurrencies.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="accordion-item text-info bg-dark">
+            <h2 className="accordion-header" id="headingSix">
+              <button
+                className="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseSix"
+                aria-expanded="false"
+                aria-controls="collapseSix"
+                style={{ backgroundColor: "black", color: "skyblue" }}
+              >
+                6. I hear cryptocurrencies are used for illicit/illegal
+                activities; is this true?
+              </button>
+            </h2>
+            <div
+              id="collapseSix"
+              className="accordion-collapse collapse"
+              aria-labelledby="headingSix"
+              data-bs-parent="#accordionExample"
+            >
+              <div className="accordion-body">
+                Since cryptocurrency operates on a decentralized network that
+                lacks a central authority, it is possible to exchange
+                cryptocurrency without registering an identity. Yes, since the
+                start there have been criminal activities with cryptocurrencies.
+                However, the blockchain publicly records every transaction, and
+                while names are not assigned to addresses, you can trace
+                activity back to a crypto exchange, which knows the end user.
+                The estimates vary for how many transactions are for illegal
+                activities and proponents of cryptocurrency point to illegal
+                activity with traditional currencies. (Source: NY Times article
+                Jan 2020)
               </div>
             </div>
           </div>
         </div>
-        <div className="accordion-item text-info bg-dark">
-          <h2 className="accordion-header" id="headingSix">
-            <button
-              className="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseSix"
-              aria-expanded="false"
-              aria-controls="collapseSix"
-              style={{ backgroundColor: "black", color: "skyblue" }}
-            >
-              6. I hear cryptocurrencies are used for illicit/illegal
-              activities; is this true?
-            </button>
-          </h2>
-          <div
-            id="collapseSix"
-            className="accordion-collapse collapse"
-            aria-labelledby="headingSix"
-            data-bs-parent="#accordionExample"
-          >
-            <div className="accordion-body">
-              Since cryptocurrency operates on a decentralized network that
-              lacks a central authority, it is possible to exchange
-              cryptocurrency without registering an identity. Yes, since the
-              start there have been criminal activities with cryptocurrencies.
-              However, the blockchain publicly records every transaction, and
-              while names are not assigned to addresses, you can trace activity
-              back to a crypto exchange, which knows the end user. The estimates
-              vary for how many transactions are for illegal activities and
-              proponents of cryptocurrency point to illegal activity with
-              traditional currencies. (Source: NY Times article Jan 2020)
-            </div>
-          </div>
-        </div>
       </div>
-    );
-}
+    </div>
+  );
+};
 
-export default FAQ
+export default FAQ;
