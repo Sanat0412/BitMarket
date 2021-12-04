@@ -98,7 +98,12 @@ const CoinsTable = () => {
       <Container style={{ textAlign: "center" }}>
         <Typography
           variant="h3"
-          style={{ color: "skyblue", margin: 18, fontFamily: "bold" }}
+          style={{
+            color: "skyblue",
+            margin: 18,
+            fontFamily: "bold",
+            textShadow: "3px 3px blue",
+          }}
         >
           CryptoCurrency Prices by Market Cap
         </Typography>
@@ -236,8 +241,8 @@ const CoinsTable = () => {
             window.scroll(0, 450);
           }}
         />{" "}
-        <h1 style={{color: "skyblue"}}>FAQ</h1>
-        <FAQ/>
+        <h1 style={{ color: "skyblue" }}>FAQ</h1>
+        <FAQ />
         {/* <AboutUs /> */}
         {/* <Footer /> */}
       </Container>

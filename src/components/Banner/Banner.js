@@ -41,6 +41,7 @@ function Banner() {
             variant="h2"
             style={{
               color: "skyblue",
+              textShadow: "3px 3px blue",
               fontWeight: "bold",
               marginBottom: 15,
               fontFamily: "Montserrat",
@@ -53,6 +54,7 @@ function Banner() {
             style={{
               color: "skyblue",
               textTransform: "capitalize",
+
               fontFamily: "Montserrat",
             }}
           >
