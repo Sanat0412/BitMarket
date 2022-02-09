@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:erbium-slim
 WORKDIR '/app'
 COPY package.json .
 RUN yarn install
