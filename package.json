@@ -25,7 +25,17 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test-coverage": "npm run test -- --coverage --coverageDirectory=output/coverage/jest --watchAll=false"
+  },
+  "jest" :{
+    "terraform": {
+      "^.+\\.(js|jsx)$": "babel-jest"
+    },
+    "coverageReporters": [
+      "text",
+      "cobertura"
+    ]
   },
   "eslintConfig": {
     "extends": [
