@@ -23,7 +23,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
+    "homepage": "https://myusername.github.io/my-app",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
