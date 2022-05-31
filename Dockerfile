@@ -1,4 +1,4 @@
-FROM node:lts-slim
+FROM node:lts-buster-slim
 WORKDIR '/usr/src/app'
 COPY package*.json .
 RUN yarn install
