@@ -1,4 +1,5 @@
 version: 0.2
+run-as: root
 
 phases:
   install:
@@ -13,6 +14,7 @@ phases:
   build:
     commands:
       - echo Testing the image
+      - npm run test
       - npm run build
       - echo Building the image
       - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
@@ -21,7 +23,7 @@ phases:
     commands:
       - echo Pushing the image
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:IMAGE_TAG
-      - printf '[{"name":"%s","imageUrl":"%s"}]' $CONTAINER_NAME $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"%s","imageUri":"%s"}]' $CONTAINER_NAME $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:IMAGE_TAG > imagedefinitions.json
 
 artifacts:
   files: imagedefinitions.json
