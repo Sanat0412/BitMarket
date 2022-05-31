@@ -15,7 +15,7 @@ phases:
       - echo Testing the image
       - npm run build
       - echo Building the image
-      - docker tag $IMAGE_NAME:IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+      - docker tag $IMAGE_NAME:IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/
       $IMAGE_NAME:IMAGE_TAG
   post_build:
     commands:
