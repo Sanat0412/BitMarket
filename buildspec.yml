@@ -13,7 +13,6 @@ phases:
   build:
     commands:
       - echo Testing the image
-      - npm run test
       - npm run build
       - echo Building the image
       - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
