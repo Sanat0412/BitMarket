@@ -52,7 +52,7 @@ const CoinsTable = () => {
       "&:hover": {
         backgroundColor: "#131111",
       },
-      fontFamily: "Montserrat",
+      fontFamily: "Poppins",
     },
     pagination: {
       "& .MuiPaginationItem-root": {
@@ -109,7 +109,7 @@ const CoinsTable = () => {
         <TextField
           label="Search"
           variant="outlined"
-          style={{ marginBottom: 22, width: "100%" }}
+          style={{ marginBottom: 22, width: "100%", fontFamily: "Poppins" }}
           onChange={(e) => setSearch(e.target.value)}
         />
         <TableContainer component={Paper}>
@@ -125,7 +125,7 @@ const CoinsTable = () => {
                         style={{
                           color: "black",
                           fontWeight: "680",
-                          fontFamily: "Bold",
+                          fontFamily: "Poppins",
                         }}
                         key={head}
                         align={head === "Rank" ? " " : "left"}
@@ -151,10 +151,10 @@ const CoinsTable = () => {
                           <div className={classes.marketData}>
                             <span style={{ display: "flex" }}>
                               <Typography
-                                variant="h5"
+                                variant="h6"
                                 className={classes.heading}
                                 style={{
-                                  fontFamily: "Montserrat",
+                                  fontFamily: "Poppins",
                                   marginTop: 10,
                                 }}
                               >
@@ -176,7 +176,7 @@ const CoinsTable = () => {
                             src={row?.image}
                             alt={row.name}
                             height="50"
-                            style={{ marginBottom: 10 }}
+                            style={{ marginBottom: 10, borderRadius: 10 }}
                           />
                           <div
                             style={{
