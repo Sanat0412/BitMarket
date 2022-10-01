@@ -97,12 +97,11 @@ const CoinsTable = () => {
     <ThemeProvider theme={darkTheme}>
       <Container style={{ textAlign: "center" }}>
         <Typography
-          variant="h3"
+          variant="h4"
           style={{
-            color: "skyblue",
-            margin: 18,
-            fontFamily: "bold",
-            textShadow: "3px 3px blue",
+            color: "white",
+            margin: 50,
+            fontFamily: "Poppins",
           }}
         >
           CryptoCurrency Prices by Market Cap
