@@ -1,8 +1,10 @@
-import { Container, makeStyles, Typography } from "@material-ui/core";
+import { Container, makeStyles, Typography} from "@material-ui/core";
 import React from "react";
 import Carousel from "./Carousel";
 
+
 const useStyles = makeStyles((theme) => ({
+
   banner: {
     backgroundImage:
       "url(https://media.istockphoto.com/photos/bitcoin-cryptocurrency-futuristic-innovation-digital-picture-id1297074905?b=1&k=20&m=1297074905&s=170667a&w=0&h=pHcAAJHae3yjXVcOwnu0lCAPClwLxy6HUn4OitrBiic=)",
@@ -33,6 +35,8 @@ const useStyles = makeStyles((theme) => ({
 function Banner() {
   const classes = useStyles();
 
+  
+
   return (
     <div className={classes.banner}>
       <Container className={classes.bannerContent}>
@@ -40,22 +44,21 @@ function Banner() {
           <Typography
             variant="h2"
             style={{
-              color: "skyblue",
-              textShadow: "3px 3px blue",
+              color: "white",
               fontWeight: "bold",
               marginBottom: 15,
-              fontFamily: "Montserrat",
+              fontFamily: "Poppins",
+
             }}
           >
             BitMarket
           </Typography>
           <Typography
-            variant="subtitle2"
+            variant="subtitle1"
             style={{
-              color: "skyblue",
+              color: "white",
               textTransform: "capitalize",
-
-              fontFamily: "Montserrat",
+              fontFamily: "Poppins",
             }}
           >
             Get all the Info regarding your favorite Crypto Currency
